@@ -1,0 +1,154 @@
+/* W3SCHOOLS.COM AQUÍ TE EXPLICA TODO EL CSS COMO FUNCIONA*/
+/* COLORHUNT.CO AQUI HAY COMBINACION DE PALETAS DE COLORES*/
+
+/*para importar la fuente que utilizados en el título que es la krona one y la que uilizamos en el parrafo texto que es montserrat*/
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root { /*aqui lo que haremos es crear unas variables más usadas para poder utilizarlas entodo el codigo del css*/
+    --color-primario: #000;
+    --color-secuendario: #f6f6f6;
+    --color-terciario: #22d4fd;
+    --color-hover: #272727;
+
+    --fuente-montserrat: 'Montserrat', sans-serif;
+    --fuente-krona: 'Krona One', sans-serif;
+
+}
+* { /*Cuando ponemos un asterisco es que vamos a hacer un cambio universal*/
+    /*Para resetear los estilos por defecto de los navegadores de forma efectiva, 
+    utilizamos las propiedades margin, que define el margen en los cuatro lados del 
+    elemento (arriba, derecha, abajo, izquierda), y padding, que define el relleno 
+    interno en los mismos cuatro lados del elemento, ambas con un valor de 0.*/
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--color-primario);
+    color: var(--color-secuendario);    
+    /*  Aprendiste en el vídeo anterior que la propiedad box-sizing es responsable de cómo se calculan el 
+    ancho y el alto totales de un elemento. Ante esto, imagina que estás creando un proyecto y te encuentras 
+    con un error: la imagen utilizada está superando el límite del elemento padre. En otras palabras, 
+    deseas que la imagen, como elemento hijo, "se encoja" y se ajuste al contenido, como elemento padre*/              
+    box-sizing: border-box;/*Lo que hace border-box es mantener las medidas puestas anteriormente,  
+                    y lo hace de ésta forma: width - (padding-left + padding-right) - (border-right + border-left), y 
+                    height - (padding-top + padding-bottom) - (border-top + border-bottom)*/
+}
+
+.header {
+    padding: 2% 0% 0% 7%;
+}
+
+.header__menu {
+    display: flex;/*alineados horizontalmente*/
+    gap: 80px;
+
+}
+
+.header__menu__link {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem; /*son 24px*/
+    font-weight: 600;
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+/* Margin agrega un margen alrededor para centrar los cuadrados en la pantalla */
+/*Siempre que quiera poner estilos a una clase, tengo que poner punto, seguido del nombre de la clase*/ 
+.presentacion {
+    display: flex;/*pone todos las cosas alineadas*/
+    align-items: center;/*pone todas las cosas alineadas pero en el centro*/
+    padding: 6% 7%; 
+    justify-content: space-between;/*espacio entre elementos*/
+    gap: 82px; /*para cuando se vea todo en otro dispositivo mantenga una distancia margen entre el contenido y la imagen*/
+}
+
+.presentacion__contenido {
+    width: 50%; /*con ésto el contenido reducirá su tamaño cuando es dispositivo es un movil o un pc*/
+    display: flex;
+    flex-direction: column;
+    gap: 40px;/*gap Esta propiedad especifica en CSS el tamaño de los espacios entre filas y columnas en diseños de cuadrícula, flex y de varias columnas*/
+}
+
+.presentacion__contenido__titulo {
+    font-size: 2.25rem; /*36px*/
+    font-family: 'Krona One', sans-serif;
+}
+
+.titulo-destaque {
+    color: var(--color-terciario);
+}  
+
+.presentacion__contenido__texto {
+    font-size: 1.5rem; /*24px*/
+    font-family: var(--fuente-montserrat);
+}
+
+.presentacion__enlaces {
+    display: flex; /* coloca los cuadrados uno al lado del otro */
+    justify-content: space-between;
+    flex-direction: column;/*para poner los elementos en columna, si pongo row los pone en fila*/
+    align-items: center;/*para poner los elementos en el centro cuando utilizamos anteriormente flex-direction:column*/
+    gap: 32px;/*espacio entre elementos*/
+}
+
+.presentacion__enlaces__subtitulo {
+    font-family: 'Krona One', sans-serif;
+    font-size: 1.5rem; /*24px*/
+    font-weight: 400;
+}
+
+.presentacion__enlaces__link {
+    width: 50%; /*con ésto los botones reducirán su tamaño cuando es dispositivo es un movil o un pc*/
+    text-align: center;
+    padding: 21.5px 0;/*primer valor horizontal y segundo valor vertical*/
+    border-radius: 8px;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem; /*24px*/
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-secuendario);
+    border: 2px solid var(--color-terciario);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.presentacion__enlaces__link:hover { /*El hover se utiliza para seleccionar elementos cuando pasas el ratón sobre ellos.*/
+    background-color: var(--color-hover);
+}
+
+.presentacion__imagen {
+    width: 50%; /*con ésto la imagen reducirá su tamaño cuando es dispositivo es un movil o un pc*/
+}
+
+.footer  {
+    background-color: var(--color-terciario) ;
+    padding: 1.5rem; /*24 px*/
+    color: var(--color-primario);
+    text-align: center;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;/*24px*/
+    font-weight: 400;
+}
+
+/*media query es para que cuando la web se reduzca a menos de esa medida de px, tenga un cierto comportamiento*/
+@media (max-width: 1200px) {
+    .header{
+        padding: 10%;
+    }
+
+    .header__menu{
+        justify-content: center;
+    }
+
+    .presentacion{
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+
+    .presentacion__contenido{
+        width: auto;
+    }
+}
+
